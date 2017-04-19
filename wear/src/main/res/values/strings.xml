@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Scull Watchface</string>
+    <string name="service_name">Scull Watchface</string>
+
+    <string name="choose">Choose watch face</string>
+    <string name="create">Or create your own</string>
+    <string name="bg">Choose background</string>
+    <string name="scull">Decorate your watch</string>
+    <string name="clock_watch">Set up the clock watch</string>
+
+    <string name="next">Next</string>
+</resources>

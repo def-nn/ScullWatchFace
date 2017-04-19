@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.trident.scullwatchface">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault"
+        android:name=".ConstructorApp"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.BgActivity" />
+        <activity android:name=".activities.ScullActivity" />
+        <activity android:name=".activities.ClockFaceActivity" />
+        <activity android:name=".activities.ExampleActivity" />
+
+        <service android:name=".TridentWatchFaceService"
+            android:label="@string/service_name"
+            android:permission="android.permission.BIND_WALLPAPER">
+
+            <meta-data android:name="android.service.wallpaper"
+                android:resource="@xml/watch_face" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview"
+                android:resource="@drawable/preview" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular"
+                android:resource="@drawable/preview" />
+
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.wearable.watchface.companionConfigurationAction"
+                android:value="com.app.watchfaceconstructor.CONFIG_DIGITAL" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.wearableConfigurationAction"
+                android:value="com.app.watchfaceconstructor.CONFIG_DIGITAL" />
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+    </application>
+</manifest>
